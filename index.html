@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taekwondo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+            background: linear-gradient(to right, #f5f5f5, #ffffff);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        .timeline p {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .gallery {
+            background-color: #f5f5f5;
+            padding: 30px 0;
+        }
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .gallery-item-content {
+            padding: 15px;
+        }
+        .gallery-item h3 {
+            margin-top: 0;
+        }
+        .category {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: capitalize;
+        }
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .category-button {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .category-button:hover, .category-button.active {
+            background-color: #b22222;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Taekwondo</h1>
+        <p>El arte marcial que combina tradición, disciplina y excelencia deportiva</p>
+    </header>
+
+    <section id="historia">
+        <h2>Historia del Taekwondo</h2>
+        <div class="timeline">
+            <p>Las artes marciales coreanas sobreviven en secreto durante la ocupación japonesa.</p>
+            <p>El General Choi Hong Hi propone el nombre 'Taekwondo' para unificar las diferentes escuelas de artes marciales coreanas.</p>
+            <p>Se celebra el primer Campeonato Mundial de Taekwondo en Seúl, Corea.</p>
+            <p>El Taekwondo se convierte oficialmente en deporte olímpico en los Juegos Olímpicos de Sídney.</p>
+        </div>
+    </section>
+
+    <section id="galeria" class="gallery">
+        <h2>Poomsae y Combate</h2>
+        <div class="category-buttons">
+            <button class="category-button active" onclick="filterGallery('all')">Todos</button>
+            <button class="category-button" onclick="filterGallery('poomsae')">Poomsae</button>
+            <button class="category-button" onclick="filterGallery('combate')">Combate</button>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-item" data-category="poomsae">
+                <img src="ruta/a/taegeuk-il-chang.png" alt="Taegeuk Il Chang">
+                <div class="gallery-item-content">
+                    <h3>Taegeuk Il Chang</h3>
+                    <p class="category">poomsae</p>
+                    <p>El primer Poomsae de la serie Taegeuk, representa el "Cielo" y está diseñado para principiantes. Incluye posiciones básicas y técnicas fundamentales.</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="poomsae">
+                <img src="ruta/a/taegeuk-i-chang.png" alt="Taegeuk I Chang">
+                <div class="gallery-item-content">
+                    <h3>Taegeuk I Chang</h3>
+                    <p class="category">poomsae</p>
+                    <p>El segundo Poomsae de la serie Taegeuk, representa la "Alegría" y añade más complejidad a los movimientos, incluyendo bloqueos y técnicas avanzadas.</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="combate">
+                <img src="ruta/a/combate-olimpico.png" alt="Combate Olímpico">
+                <div class="gallery-item-content">
+                    <h3>Combate Olímpico</h3>
+                    <p class="category">combate</p>
+                    <p>El combate olímpico de Taekwondo se caracteriza por su dinamismo, velocidad y técnicas de patada. Se utiliza un sistema electrónico para contabilizar los puntos.</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="combate">
+                <img src="ruta/a/tecnicas-patada.png" alt="Técnicas de Patada">
+                <div class="gallery-item-content">
+                    <h3>Técnicas de Patada</h3>
+                    <p class="category">combate</p>
+                    <p>El Taekwondo es conocido por sus impresionantes técnicas de patada. Algunas de las más utilizadas en competición son Bandal Chagui, Dolio Chagui y Neryo Chagui.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="explicaciones">
+        <h2>Sobre el Taekwondo</h2>
+        <div class="timeline">
+            <h3>Poomsae</h3>
+            <p>Los Poomsae son formas o patrones de movimientos preestablecidos que simulan un combate contra oponentes imaginarios. Son la base técnica del Taekwondo y permiten desarrollar equilibrio, coordinación, concentración y precisión técnica. Existen diferentes series de Poomsae: Taegeuk (8 formas para cinturones de color), Palgwae (8 formas tradicionales) y las formas superiores para cinturones negros.</p>
+            
+            <h3>Combate Olímpico</h3>
+            <p>El Taekwondo olímpico se centra en el combate deportivo o "Kyorugi". Los competidores usan protecciones electrónicas que registran los impactos. Se otorgan puntos según la zona y técnica: 1 punto por patada al peto, 2 puntos por patada giratoria al peto, 3 puntos por patada a la cabeza y 4 puntos por patada giratoria a la cabeza. Los combates constan de 3 asaltos de 2 minutos con descansos de 1 minuto entre ellos.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Taekwondo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function filterGallery(category) {
+            // Actualizar botones activos
+            const buttons = document.querySelectorAll('.category-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+                if (button.innerText.toLowerCase() === category || 
+                    (button.innerText.toLowerCase() === 'todos' && category === 'all')) {
+                    button.classList.add('active');
+                }
+            });
+
+            // Filtrar elementos
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    const itemCategory = item.getAttribute('data-category');
+                    if (itemCategory === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Animación simple para la línea de tiempo
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline p');
+            
+            function fadeIn(element, delay) {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, delay);
+            }
+            
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s, transform 0.5s';
+                fadeIn(item, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs de Taekwondo en España</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        
+        .container {
+            padding: 16px 0;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 24px;
+        }
+        
+        .heading {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 32px;
+        }
+        
+        .input-group {
+            margin-bottom: 24px;
+        }
+        
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .club-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .club-card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .club-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .club-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #e53e3e;
+            margin-bottom: 8px;
+        }
+        
+        .club-details {
+            margin-bottom: 8px;
+        }
+        
+        .club-contact {
+            color: #e53e3e;
+            text-decoration: none;
+        }
+        
+        .club-contact:hover {
+            text-decoration: underline;
+        }
+        
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #666;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Clubs de Taekwondo en España</h1>
+        
+        <div class="search-container">
+            <div class="input-group">
+                <label class="input-label" for="city-search">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Ciudad
+                </label>
+                <input 
+                    id="city-search"
+                    type="text" 
+                    placeholder="Busca clubs por ciudad" 
+                    class="input"
+                >
+            </div>
+
+            <div id="clubs-container" class="club-list">
+                <!-- Los clubs se insertarán aquí dinámicamente -->
+            </div>
+            
+            <div id="no-results" class="no-results" style="display: none;">
+                No se encontraron clubs en esta ubicación
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Base de datos de clubs
+        const clubsDatabase = [
+            // Tenerife
+            {
+                id: 1,
+                name: "Natural Sport Canarias",
+                city: "Tenerife",
+                country: "España",
+                address: "Tenerife",
+                phone: "Contactar para más información",
+                email: "info@naturalsportcanarias.es"
+            },
+            {
+                id: 2,
+                name: "Samguk",
+                city: "Tenerife",
+                country: "España",
+                address: "Tenerife",
+                phone: "Contactar para más información",
+                email: "info@samguk.es"
+            },
+            {
+                id: 3,
+                name: "Club Mencey",
+                city: "Tenerife",
+                country: "España",
+                address: "Tenerife",
+                phone: "Contactar para más información",
+                email: "info@clubmencey.es"
+            },
+            {
+                id: 4,
+                name: "Club Jansu",
+                city: "Tenerife",
+                country: "España",
+                address: "Tenerife",
+                phone: "Contactar para más información",
+                email: "info@clubjansu.es"
+            },
+            {
+                id: 5,
+                name: "Club La Laguna",
+                city: "Tenerife",
+                country: "España",
+                address: "La Laguna, Tenerife",
+                phone: "Contactar para más información",
+                email: "info@clublalaguna.es"
+            },
+
+            // Gran Canaria
+            {
+                id: 6,
+                name: "Club Taecan",
+                city: "Gran Canaria",
+                country: "España",
+                address: "Gran Canaria",
+                phone: "Contactar para más información",
+                email: "info@clubtaecan.es"
+            },
+            {
+                id: 7,
+                name: "Taekion Firgas",
+                city: "Gran Canaria",
+                country: "España",
+                address: "Firgas, Gran Canaria",
+                phone: "Contactar para más información",
+                email: "info@taekionfirgas.es"
+            },
+            {
+                id: 8,
+                name: "Ilja Sport",
+                city: "Gran Canaria",
+                country: "España",
+                address: "Gran Canaria",
+                phone: "Contactar para más información",
+                email: "info@iljasport.es"
+            },
+            {
+                id: 9,
+                name: "Jeonsa",
+                city: "Gran Canaria",
+                country: "España",
+                address: "Gran Canaria",
+                phone: "Contactar para más información",
+                email: "info@jeonsa.es"
+            },
+            {
+                id: 10,
+                name: "Maspalomas",
+                city: "Gran Canaria",
+                country: "España",
+                address: "Maspalomas, Gran Canaria",
+                phone: "Contactar para más información",
+                email: "info@maspalomas.es"
+            },
+
+            // Madrid
+            {
+                id: 11,
+                name: "Club Deportivo Talma Madrid",
+                city: "Madrid",
+                country: "España",
+                address: "Madrid",
+                phone: "Contactar para más información",
+                email: "info@talmamadrid.es"
+            },
+            {
+                id: 12,
+                name: "Han Kuk International School",
+                city: "Madrid",
+                country: "España",
+                address: "Madrid",
+                phone: "Contactar para más información",
+                email: "info@hankuk.es"
+            },
+            {
+                id: 13,
+                name: "Club Taekwondo Kyoto Vallecas",
+                city: "Madrid",
+                country: "España",
+                address: "Vallecas, Madrid",
+                phone: "Contactar para más información",
+                email: "info@kyotovallecas.es"
+            },
+            {
+                id: 14,
+                name: "Club Taekwondo Getafe",
+                city: "Madrid",
+                country: "España",
+                address: "Getafe, Madrid",
+                phone: "649 72 90 39",
+                email: "info@tkdgetafe.es"
+            },
+
+            // Barcelona
+            {
+                id: 15,
+                name: "Cho San",
+                city: "Barcelona",
+                country: "España",
+                address: "Barcelona",
+                phone: "Contactar para más información",
+                email: "info@chosan.es"
+            },
+            {
+                id: 16,
+                name: "Do Yang Sal International",
+                city: "Barcelona",
+                country: "España",
+                address: "Barcelona",
+                phone: "Contactar para más información",
+                email: "info@doyangsal.es"
+            },
+            {
+                id: 17,
+                name: "Won's Barcelona",
+                city: "Barcelona",
+                country: "España",
+                address: "Barcelona",
+                phone: "Contactar para más información",
+                email: "info@wonsbarcelona.es"
+            },
+            {
+                id: 18,
+                name: "Golden Kyu",
+                city: "Barcelona",
+                country: "España",
+                address: "Sarrià - Sant Gervasi, Barcelona",
+                phone: "Contactar para más información",
+                email: "info@goldenkyu.es"
+            },
+
+            // Valencia
+            {
+                id: 19,
+                name: "Taekwondo Valencia Club Deportivo Esclavas",
+                city: "Valencia",
+                country: "España",
+                address: "Valencia",
+                phone: "Contactar para más información",
+                email: "info@tkdvalencia.es"
+            },
+            {
+                id: 20,
+                name: "Club Kukkiwon",
+                city: "Valencia",
+                country: "España",
+                address: "Valencia",
+                phone: "Contactar para más información",
+                email: "info@clubkukkiwon.es"
+            },
+            {
+                id: 21,
+                name: "Chong Do Lee Taekwondo",
+                city: "Valencia",
+                country: "España",
+                address: "Valencia",
+                phone: "Contactar para más información",
+                email: "info@chongdolee.es"
+            },
+
+            // Galicia
+            {
+                id: 22,
+                name: "A. D. Gimnasio Escuela Tao",
+                city: "Galicia",
+                country: "España",
+                address: "Galicia",
+                phone: "Contactar para más información",
+                email: "info@escuelatao.es"
+            },
+            {
+                id: 23,
+                name: "As Sport",
+                city: "Galicia",
+                country: "España",
+                address: "Galicia",
+                phone: "Contactar para más información",
+                email: "info@assport.es"
+            },
+            {
+                id: 24,
+                name: "C.D. Seung Sport",
+                city: "Galicia",
+                country: "España",
+                address: "Galicia",
+                phone: "Contactar para más información",
+                email: "info@seungsport.es"
+            },
+            {
+                id: 25,
+                name: "Club Deportivo Miralba",
+                city: "Galicia",
+                country: "España",
+                address: "Galicia",
+                phone: "Contactar para más información",
+                email: "info@miralba.es"
+            }
+        ];
+
+        // Función para renderizar un club
+        function renderClub(club) {
+            return `
+                <div class="club-card">
+                    <h3 class="club-name">${club.name}</h3>
+                    <div class="club-details">
+                        <p>
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            ${club.address}
+                        </p>
+                        <p>
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            ${club.phone}
+                        </p>
+                        <p>
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                            ${club.email}
+                        </p>
+                    </div>
+                    <a href="mailto:${club.email}" class="club-contact">Contactar</a>
+                </div>
+            `;
+        }
+
+        // Función para filtrar y renderizar los clubs
+        function filterAndRenderClubs() {
+            const cityFilter = document.getElementById('city-search').value.toLowerCase();
+            const clubsContainer = document.getElementById('clubs-container');
+            const noResultsElement = document.getElementById('no-results');
+            
+            // Filtrar clubs por ciudad
+            const filteredClubs = clubsDatabase.filter(club => {
+                return !cityFilter || club.city.toLowerCase().includes(cityFilter);
+            });
+            
+            // Mostrar resultados o mensaje de no resultados
+            if (filteredClubs.length > 0) {
+                clubsContainer.innerHTML = filteredClubs.map(renderClub).join('');
+                clubsContainer.style.display = 'block';
+                noResultsElement.style.display = 'none';
+            } else if (cityFilter) {
+                clubsContainer.innerHTML = '';
+                clubsContainer.style.display = 'none';
+                noResultsElement.style.display = 'block';
+            } else {
+                clubsContainer.innerHTML = clubsDatabase.map(renderClub).join('');
+                clubsContainer.style.display = 'block';
+                noResultsElement.style.display = 'none';
+            }
+        }
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar el evento de búsqueda
+            document.getElementById('city-search').addEventListener('input', filterAndRenderClubs);
+            
+            // Cargar todos los clubs al inicio
+            filterAndRenderClubs();
+        });
+    </script>
+</body>
+</html>
